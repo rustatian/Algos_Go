@@ -61,3 +61,9 @@ func TestNode_Depth(t *testing.T) {
 	actual := NodeDepths(root)
 	require.Equal(t, 16, actual)
 }
+
+func TestGetNthFib(t *testing.T) {
+	expected := 5
+	output := GetNthFib(6)
+	require.Equal(t, expected, output)
+}

@@ -67,3 +67,21 @@ func TestGetNthFib(t *testing.T) {
 	output := GetNthFib(6)
 	require.Equal(t, expected, output)
 }
+
+func TestProductSum(t *testing.T) {
+	input := SpecialArray{
+		5, 2,
+		SpecialArray{7, -1},
+		3,
+		SpecialArray{
+			6,
+			SpecialArray{
+				-13, 8,
+			},
+			4,
+		},
+	}
+	output := ProductSum(input)
+	expected := 12
+	require.Equal(t, expected, output)
+}

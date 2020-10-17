@@ -85,3 +85,13 @@ func TestProductSum(t *testing.T) {
 	expected := 12
 	require.Equal(t, expected, output)
 }
+
+func TestBinarySearch(t *testing.T) {
+	expected := 3
+	output := BinarySearch([]int{0, 1, 21, 33, 45, 45, 61, 71, 72, 73}, 33)
+	require.Equal(t, expected, output)
+
+	expected = -1
+	output = BinarySearch([]int{1, 5, 23, 111}, 120)
+	require.Equal(t, expected, output)
+}

@@ -101,3 +101,9 @@ func TestFindThreeLargestNumbers(t *testing.T) {
 	output := FindThreeLargestNumbers([]int{141, 1, 17, -7, -17, -27, 18, 541, 8, 7, 7})
 	require.Equal(t, expected, output)
 }
+
+func TestBubbleSort(t *testing.T) {
+	expected := []int{2, 3, 5, 5, 6, 8, 9}
+	output := BubbleSort([]int{8, 5, 2, 9, 5, 6, 3})
+	require.Equal(t, expected, output)
+}

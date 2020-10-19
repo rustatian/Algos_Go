@@ -107,3 +107,9 @@ func TestBubbleSort(t *testing.T) {
 	output := BubbleSort([]int{8, 5, 2, 9, 5, 6, 3})
 	require.Equal(t, expected, output)
 }
+
+func TestInsertionSort(t *testing.T) {
+	expected := []int{2, 3, 5, 5, 6, 8, 9}
+	output := InsertionSort([]int{8, 5, 2, 9, 5, 6, 3})
+	require.Equal(t, expected, output)
+}

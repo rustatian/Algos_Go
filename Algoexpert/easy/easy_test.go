@@ -119,3 +119,8 @@ func TestSelectionSort(t *testing.T) {
 	output := SelectionSort([]int{8, 5, 2, 9, 5, 6, 3})
 	require.Equal(t, expected, output)
 }
+
+func TestIsPalindrome(t *testing.T) {
+	output := IsPalindrome("abcdcba")
+	require.Equal(t, true, output)
+}

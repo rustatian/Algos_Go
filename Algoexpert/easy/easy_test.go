@@ -124,3 +124,9 @@ func TestIsPalindrome(t *testing.T) {
 	output := IsPalindrome("abcdcba")
 	require.Equal(t, true, output)
 }
+
+func TestCaesarCipherEncryptor(t *testing.T) {
+	expected := "zab"
+	output := CaesarCipherEncryptor("xyz", 2)
+	require.Equal(t, expected, output)
+}

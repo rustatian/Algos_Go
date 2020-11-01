@@ -25,3 +25,9 @@ func TestMoveElementToEnd(t *testing.T) {
 	output := MoveElementToEnd(array, toMove)
 	require.Equal(t, expected, output)
 }
+
+func TestIsMonotonic(t *testing.T) {
+	array := []int{-1, -5, -10, -1100, -900, -1101, -1102, -9001}
+	actual := IsMonotonic(array)
+	require.False(t, actual)
+}

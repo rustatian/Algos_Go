@@ -22,7 +22,7 @@ func IsMonotonic(array []int) bool {
 	// FALSE if both are false
 	// WHY?
 	// If we would have mixed increasing and decreasing values in the array, both decreasing and increasing will be false
-	// and we will have false || false. If array is monolithic we will have false only in decreasing OR increasing. And the result
+	// and we will have false || false. If array is monotonic we will have false only in decreasing OR increasing. And the result
 	// will be TRUE || FALSE --> TRUE
 	return decreasing || increasing
 }

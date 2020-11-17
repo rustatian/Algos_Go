@@ -130,3 +130,20 @@ func TestCaesarCipherEncryptor(t *testing.T) {
 	output := CaesarCipherEncryptor("xyz", 2)
 	require.Equal(t, expected, output)
 }
+
+func TestRunLengthEncoding(t *testing.T) {
+	//input := "AAAAAAAAAAAAABBCCCCDD"
+	//expected := "9A4A2B4C2D"
+	//actual := RunLengthEncoding(input)
+	//require.Equal(t, expected, actual)
+
+	//input := "aA"
+	//expected := "1a1A"
+	//actual := RunLengthEncoding(input)
+	//require.Equal(t, expected, actual)
+
+	input := "........______=========AAAA   AAABBBB   BBB"
+	expected := "8.6_9=4A3 3A4B3 3B"
+	actual := RunLengthEncoding(input)
+	require.Equal(t, expected, actual)
+}

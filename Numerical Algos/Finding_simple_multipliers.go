@@ -22,7 +22,7 @@ func smartSolution() {
 	var multipliers []int
 
 	// First - check dividing by 2
-	for num % 2 == 0 {
+	for num%2 == 0 {
 		multipliers = append(multipliers, num)
 		num = num / 2
 	}
@@ -32,7 +32,7 @@ func smartSolution() {
 	max := math.Sqrt(float64(num))
 
 	for float64(i) <= max {
-		for num % i == 0 {
+		for num%i == 0 {
 			multipliers = append(multipliers, num)
 			num = num / i
 
@@ -49,9 +49,7 @@ func smartSolution() {
 	fmt.Println(multipliers)
 }
 
-
-
-func simpleSolution(){
+func simpleSolution() {
 	num := 131
 	i := 2
 	var multipliers []int
@@ -62,7 +60,7 @@ func simpleSolution(){
 			multipliers = append(multipliers, num)
 			num = num / i
 		}
-		i ++
+		i++
 	}
 
 	if num > 1 {

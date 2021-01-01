@@ -5,7 +5,7 @@ func main() {
 
 func matrixReshape(nums [][]int, r int, c int) [][]int {
 
-	res := [][]int{[]int{}, []int{}}
+	res := [][]int{{}, {}}
 	var rows, cols int = 0, 0
 
 	for i := 0; i < len(nums); i++ {

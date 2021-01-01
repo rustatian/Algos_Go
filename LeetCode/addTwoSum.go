@@ -29,17 +29,13 @@ func addTwoNumbers(l1 *ListNode, l2 *ListNode) *ListNode {
 	sl1 := make([]int, 10)
 	sl2 := make([]int, 10)
 
-
 	for {
 		if l1.Next == nil {
 
 		}
 
-
-
 		break
 	}
-
 
 	return ln
 }

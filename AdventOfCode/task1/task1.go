@@ -27,6 +27,3 @@ func main() {
 	}
 	fmt.Println(num)
 }
-
-
-

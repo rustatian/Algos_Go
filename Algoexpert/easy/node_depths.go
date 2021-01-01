@@ -18,6 +18,6 @@ func node_depths_helper(node *BinaryTree, depth int, sum *int) {
 		return
 	}
 
-	node_depths_helper(node.Left, depth + 1, sum)
-	node_depths_helper(node.Right, depth + 1, sum)
+	node_depths_helper(node.Left, depth+1, sum)
+	node_depths_helper(node.Right, depth+1, sum)
 }

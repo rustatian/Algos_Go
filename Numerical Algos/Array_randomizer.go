@@ -27,7 +27,6 @@ func main() {
 	fmt.Print(slice)
 }
 
-
 // Use linear congruent generator
 func lcg(A, B, M int) int {
 	var Xn = 44 //Seed

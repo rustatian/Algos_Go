@@ -22,7 +22,7 @@ func binarySearchHelper(array []int, target int, left, right int) int {
 
 func binarySearchHelperIterative(array []int, target int, left, right int) int {
 	res := -1
-	for ; left <= right; {
+	for left <= right {
 		middle := (left + right) / 2
 		num := array[middle]
 		if num == target {

@@ -2,8 +2,8 @@ package main
 
 import (
 	"flag"
-	"math"
 	"fmt"
+	"math"
 )
 
 // A ^ 2xM = (A^M) ^ 2
@@ -24,14 +24,13 @@ func main() {
 	var i float64 = 2
 	var res float64 = 1
 
-
 	for i <= float64(*P) {
 		res = math.Pow(*A, float64(i))
 		i = i * 2
 	}
 	//If we have power for example 35 -> in prev step we calculate only power of 32 and must add power of 3
 	if (float64(*P) - i) != 0 {
-		res = math.Pow(*A, float64(*P) - i/2) * res
+		res = math.Pow(*A, float64(*P)-i/2) * res
 	}
 
 	if *P == 1 {

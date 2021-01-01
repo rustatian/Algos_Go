@@ -1,16 +1,15 @@
 package main
 
 import (
-	"fmt"
 	"math"
 )
 
 func main() {
-	
+
 }
 
 // k-prime number
-func CountKprimes(k, start, nd int)  []int {
+func CountKprimes(k, start, nd int) []int {
 	// n * 2^n - 1
 
 	maxNumber := nd
@@ -51,19 +50,12 @@ func CountKprimes(k, start, nd int)  []int {
 		}
 	}
 
-
 	return resSlice
-
-
-
 
 	// your code
 }
 
-
 func Erythrophene_sieve() {
-
-
 
 }
 

@@ -6,7 +6,7 @@ func MoveElementToEnd(array []int, toMove int) []int {
 	right := len(array) - 1
 	left := 0
 
-	for ; left <= right; {
+	for left <= right {
 		// right element is equal toMove, continue search
 		if array[right] == toMove {
 			right--

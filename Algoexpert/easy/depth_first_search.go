@@ -13,5 +13,3 @@ func (n *Node) DepthFirstSearch(array []string) []string {
 
 	return array
 }
-
-

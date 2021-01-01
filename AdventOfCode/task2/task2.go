@@ -25,7 +25,7 @@ func main() {
 		text := b.Text()
 		temp := make(map[string]int, len(text))
 
-		for i := 0; i < len(text); i ++ {
+		for i := 0; i < len(text); i++ {
 			if v, ok := temp[string(text[i])]; ok {
 				temp[string(text[i])] = v + 1
 			} else {
@@ -48,7 +48,7 @@ func main() {
 		temp = nil
 	}
 
-	fmt.Print(25*249)
+	fmt.Print(25 * 249)
 
 	fmt.Print(m)
 

@@ -7,7 +7,7 @@ func SpiralTraverse(array [][]int) []int {
 	startColumn := 0
 	endColumn := len(array[0]) - 1
 
-	for ; startRow <= endRow && startColumn <= endColumn; {
+	for startRow <= endRow && startColumn <= endColumn {
 		for i := startColumn; i <= endColumn; i++ {
 			res = append(res, array[startRow][i])
 		}

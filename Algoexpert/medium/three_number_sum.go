@@ -13,7 +13,7 @@ func ThreeNumberSum(array []int, target int) [][]int {
 	for i := 0; i < len(array); i++ {
 		left := i + 1
 		right := len(array) - 1
-		for ; left < right; {
+		for left < right {
 			current := array[i] + array[left] + array[right]
 			if current == target {
 				res = append(res, []int{array[i], array[left], array[right]})

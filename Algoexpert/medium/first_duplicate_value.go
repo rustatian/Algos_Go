@@ -1,5 +1,6 @@
 package medium
 
+// O(n) time, O(n) space (map)
 func FirstDuplicateValue2(array []int) int {
 	m := make(map[int]int)
 	for i := 0; i < len(array); i++ {
@@ -11,6 +12,7 @@ func FirstDuplicateValue2(array []int) int {
 	return -1
 }
 
+// O(n) time, O(1) space
 func FirstDuplicateValue(array []int) int {
 	for i := 0; i < len(array); i++ {
 		index := abs(array[i])

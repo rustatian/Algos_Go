@@ -15,7 +15,7 @@ type countingStruct struct {
 // --> []countingStruct {row:1, num: 2, freq: 4}
 
 func main() {
-	file, _ := os.Open("/Users/0xdev/Projects/repo/GoAlgos/AdventOfCode/task2/task2")
+	file, _ := os.Open("/Users/0xdev/Projects/repo/GoAlgos/advent_of_code/task2/task2")
 	b := bufio.NewScanner(file)
 
 	m := make(map[int]int, 100)

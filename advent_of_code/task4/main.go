@@ -7,16 +7,8 @@ import (
 	"sort"
 )
 
-type countingStruct struct {
-	Id     int
-	number string
-	freq   int
-}
-
-// --> []countingStruct {row:1, num: 2, freq: 4}
-
 func main() {
-	file, _ := os.Open("/Users/0xdev/Projects/repo/GoAlgos/AdventOfCode/task3/task.txt")
+	file, _ := os.Open("/Users/0xdev/Projects/repo/GoAlgos/advent_of_code/task4/task.txt")
 	b := bufio.NewScanner(file)
 
 	m := make([]string, 0)

@@ -9,7 +9,7 @@ import (
 )
 
 func main() {
-	a, _ := os.Open("/Users/0xdev/Projects/repo/GoAlgos/AdventOfCode/task1/task1.txt")
+	a, _ := os.Open("/Users/0xdev/Projects/repo/GoAlgos/advent_of_code/task1/task1.txt")
 	var num int
 
 	scanner := bufio.NewScanner(a)

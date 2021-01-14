@@ -13,7 +13,6 @@ func main() {
 }
 
 func ToCamelCase(s string) string {
-
 	if s == "" {
 		return ""
 	}

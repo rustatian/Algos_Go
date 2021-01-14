@@ -7,6 +7,7 @@ import (
 
 func main() {
 	fmt.Println(singleNumber([]int{17, 12, 5, -6, 12, 4, 17, -5, 2, -3, 2, 4, 5, 16, -3, -4, 15, 15, -4, -5, -6}))
+	fmt.Println(singleNumber_smart([]int{17, 12, 5, -6, 12, 4, 17, -5, 2, -3, 2, 4, 5, 16, -3, -4, 15, 15, -4, -5, -6}))
 }
 
 func singleNumber(nums []int) int {
@@ -23,6 +24,9 @@ func singleNumber(nums []int) int {
 	}
 	return nums[len(nums)-1]
 
+}
+
+func singleNumber_smart(nums []int) int {
 	// Concept
 	// If we take XOR of zero and some bit, it will return that bit
 	// a⊕0=a

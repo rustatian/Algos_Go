@@ -6,11 +6,6 @@ import (
 )
 
 //We can solve that problem by 2 ways: just iterate or use some rules
-
-func main() {
-
-}
-
 func smartSolution() {
 
 	//1. All even numbers can be divided by 2, so we must divide by 2 and odd numbers. So, time reduced twice

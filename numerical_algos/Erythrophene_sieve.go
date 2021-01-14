@@ -5,10 +5,6 @@ import (
 	"math"
 )
 
-func main() {
-
-}
-
 func Erythrophene_sieve() {
 	var maxNumber float64 = 1000000
 

@@ -74,6 +74,9 @@ func TestBST(t *testing.T) {
 	root.Right.Left.Right = NewBST(14)
 	root.Right.Right = NewBST(22)
 
+	require.True(t, root.Contains(14))
+	require.False(t, root.Contains(33))
+
 	root.Insert(12)
 	require.True(t, root.Right.Left.Left.Value == 12)
 

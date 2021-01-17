@@ -40,12 +40,27 @@ func (tree *BST) Insert(value int) *BST {
 }
 
 func (tree *BST) Contains(value int) bool {
-	// Write your code here.
-	return false
+	if value > tree.Value {
+		if tree.Right == nil {
+			return false
+		} else if tree.Right.Value == value {
+			return true
+		} else {
+			return tree.Right.Contains(value)
+		}
+
+	} else {
+		if tree.Left == nil {
+			return false
+		} else if tree.Left.Value == value {
+			return true
+		} else {
+			return tree.Left.Contains(value)
+		}
+	}
 }
 
 func (tree *BST) Remove(value int) *BST {
-	// Write your code here.
-	// Do not edit the return statement of this method.
+	
 	return tree
 }

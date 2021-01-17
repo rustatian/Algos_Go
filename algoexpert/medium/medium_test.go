@@ -63,10 +63,6 @@ func TestFirstDuplicateValue(t *testing.T) {
 	require.Equal(t, expected, actual)
 }
 
-func NewBST(value int) *BST {
-	return &BST{Value: value}
-}
-
 func TestBST(t *testing.T) {
 	root := NewBST(10)
 	root.Left = NewBST(5)

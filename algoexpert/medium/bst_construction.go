@@ -61,6 +61,18 @@ func (tree *BST) Contains(value int) bool {
 }
 
 func (tree *BST) Remove(value int) *BST {
-	
+	// right and leftmost
+	left := tree.Right.findLeft()
+
+	tree.Insert(left.Value)
+
 	return tree
+}
+
+func (tree *BST) findLeft() *BST {
+	if tree.Left == nil {
+		return tree
+	} else {
+		return tree.Left.findLeft()
+	}
 }

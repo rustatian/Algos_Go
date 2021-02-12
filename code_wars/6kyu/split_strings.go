@@ -6,9 +6,6 @@ package main
 //
 //Solution("abc") //should return ["ab", "c_"]
 //Solution("abcdef") //should return ["ab", "cd", "ef"]
-func main() {
-	println(Solution("awsaws"))
-}
 
 func Solution(str string) []string {
 	var res []string

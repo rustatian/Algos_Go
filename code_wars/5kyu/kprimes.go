@@ -54,11 +54,3 @@ func CountKprimes(k, start, nd int) []int {
 
 	// your code
 }
-
-func Erythrophene_sieve() {
-
-}
-
-func Puzzle(s int) int {
-	// your code
-}

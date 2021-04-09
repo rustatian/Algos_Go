@@ -169,3 +169,10 @@ func TestFirstNonRepeatingCharacter(t *testing.T) {
 	actual := FirstNonRepeatingCharacter(input)
 	require.Equal(t, expected, actual)
 }
+
+func TestMinimumWaitingTime(t *testing.T) {
+	queries := []int{3, 2, 1, 2, 6}
+	expected := 17
+	actual := MinimumWaitingTime(queries)
+	require.Equal(t, expected, actual)
+}

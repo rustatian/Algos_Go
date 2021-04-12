@@ -86,3 +86,30 @@ func TestBST(t *testing.T) {
 
 	require.True(t, root.Contains(15))
 }
+
+func TestMergeOverlappingIntervals(t *testing.T) {
+	input := [][]int{
+		{4, 7},
+		{6, 8},
+		{1, 2},
+		{3, 5},
+		{9, 10},
+	}
+	expected := [][]int{
+		{1, 2},
+		{3, 8},
+		{9, 10},
+	}
+	actual := MergeOverlappingIntervals(input)
+
+	require.Equal(t, expected, actual)
+	input2 := [][]int{
+		{1, 22},
+		{-20, 30},
+	}
+	expected2 := [][]int{
+		{-20, 30},
+	}
+	actual2 := MergeOverlappingIntervals(input2)
+	require.Equal(t, expected2, actual2)
+}

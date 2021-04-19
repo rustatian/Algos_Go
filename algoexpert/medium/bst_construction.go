@@ -40,39 +40,124 @@ func (tree *BST) Insert(value int) *BST {
 }
 
 func (tree *BST) Contains(value int) bool {
-	if value > tree.Value {
-		if tree.Right == nil {
-			return false
-		} else if tree.Right.Value == value {
+	curr := tree
+	for curr != nil {
+		if value == curr.Value {
 			return true
-		} else {
-			return tree.Right.Contains(value)
 		}
-
-	} else {
-		if tree.Left == nil {
-			return false
-		} else if tree.Left.Value == value {
-			return true
+		if value > curr.Value {
+			if curr.Right == nil {
+				return false
+			} else {
+				curr = curr.Right
+				continue
+			}
 		} else {
-			return tree.Left.Contains(value)
+			if curr.Left == nil {
+				return false
+			} else {
+				curr = curr.Left
+				continue
+			}
 		}
 	}
+	return false
 }
 
-func (tree *BST) Remove(value int) *BST {
+func (tree *BST) Remove(value int) {
 	// right and leftmost
-	left := tree.Right.findLeft()
-
-	tree.Insert(left.Value)
-
-	return tree
+	tree.remove(value, tree)
 }
 
-func (tree *BST) findLeft() *BST {
-	if tree.Left == nil {
-		return tree
-	} else {
-		return tree.Left.findLeft()
+func (tree *BST) remove(value int, parent *BST) {
+	z := tree
+	for z != nil {
+		if z.Value > value {
+			// save the parent node
+			parent = z
+			z = z.Left
+		} else if z.Value < value {
+			// save the parent node
+			parent = z
+			z = z.Right
+		} else {
+			if z.Left != nil && z.Right != nil {
+				z = tree.treeMinimum()
+			}
+			// found
+			// invariant 1
+			/*
+						q
+						|
+						Z
+					   / \
+					  /   \
+				    NIL    R
+				          / \
+				         /   \
+
+				We have Z to delete
+				Z has no left child
+				Z has right child
+							q
+							|
+							R
+						   / \
+						  /   \
+			*/
+			if z.Left == nil {
+				tree.transplant(z, parent, z.Right)
+			}
+
+			// invariant 2 piashchynski_valery@hotmail.com +375292704404
+			/*
+							q
+							|
+							Z
+						   / \
+						  /   \
+					     L    NIL
+						/ \
+				       /   \
+					We have Z to delete
+					Z has no right child
+					Z has left child
+								q
+								|
+								R
+							   / \
+							  /   \
+			*/
+
+			if z.Right == nil {
+				tree.transplant(z, parent, z.Left)
+			}
+
+			// both nodes
+			if z.Left != nil && z.Right != nil {
+
+			}
+		}
 	}
+}
+
+func (tree *BST) transplant(u, parent, v *BST) {
+	if parent == nil {
+		panic("fdf")//tree = v
+	} else if u == parent.Left {
+		parent.Left = v
+	} else {
+		parent.Right = v
+	}
+	if v != nil {
+
+	}
+}
+
+func (tree *BST) treeMinimum() *BST {
+	curr := tree
+	for curr != nil {
+		curr = curr.Left
+	}
+	return curr
 }

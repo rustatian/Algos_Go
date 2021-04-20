@@ -109,7 +109,7 @@ func (tree *BST) remove(value int, parent *BST) {
 				tree.transplant(z, parent, z.Right)
 			}
 
-			// invariant 2 piashchynski_valery@hotmail.com +375292704404
+			// invariant 2
 			/*
 							q
 							|

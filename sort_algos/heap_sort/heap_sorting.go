@@ -2,26 +2,21 @@ package main
 
 import "fmt"
 
-func siftDown(numbers []int, root, bottom int) {
-	var maxChild int
-	var done bool
+func shiftDown(numbers []int, k, n int) {
+	// k << 1 is equal to k*2
+	for k<<1 <= n {
+		j := k << 1
 
-	// root << 1 equals to root * 2
-	for (root<<1 <= bottom) && !done {
-		if root<<1 == bottom {
-			maxChild = root << 1
-		} else if numbers[root<<1] > numbers[(root<<1)|1] {
-			maxChild = root << 1
-		} else {
-			maxChild = (root << 1) | 1
+		if j < n && numbers[j] < numbers[j+1] {
+			j++
 		}
 
-		if numbers[root] < numbers[maxChild] {
-			numbers[root], numbers[maxChild] = numbers[maxChild], numbers[root]
-			root = maxChild
-		} else {
-			done = true
+		if !(numbers[k] < numbers[j]) {
+			break
 		}
+
+		numbers[k], numbers[j] = numbers[j], numbers[k]
+		k = j
 	}
 }
 
@@ -29,12 +24,12 @@ func heapSort(numbers []int) {
 	arraySize := len(numbers) - 1
 
 	for i := arraySize/2 - 1; i >= 0; i-- {
-		siftDown(numbers, i, arraySize)
+		shiftDown(numbers, i, arraySize)
 	}
 
 	for i := arraySize - 1; i >= 1; i-- {
 		numbers[0], numbers[i] = numbers[i], numbers[0]
-		siftDown(numbers, 0, i-1)
+		shiftDown(numbers, 0, i-1)
 	}
 
 }

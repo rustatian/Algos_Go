@@ -82,6 +82,8 @@ func (tree *BST) remove(value int, parent *BST) {
 			z = z.Right
 		} else {
 			if z.Left != nil && z.Right != nil {
+				min := tree.treeMinimum()
+				_ = min
 				z = tree.treeMinimum()
 			}
 			// found
@@ -143,7 +145,7 @@ func (tree *BST) remove(value int, parent *BST) {
 
 func (tree *BST) transplant(u, parent, v *BST) {
 	if parent == nil {
-		panic("fdf")//tree = v
+		panic("fdf") //tree = v
 	} else if u == parent.Left {
 		parent.Left = v
 	} else {
@@ -156,7 +158,7 @@ func (tree *BST) transplant(u, parent, v *BST) {
 
 func (tree *BST) treeMinimum() *BST {
 	curr := tree
-	for curr != nil {
+	for curr.Left != nil {
 		curr = curr.Left
 	}
 	return curr

@@ -176,3 +176,10 @@ func TestMinimumWaitingTime(t *testing.T) {
 	actual := MinimumWaitingTime(queries)
 	require.Equal(t, expected, actual)
 }
+
+func TestNonConstructableChange(t *testing.T) {
+	input := []int{5, 6, 1, 1, 2, 3, 4, 9}
+	expected := 32
+	actual := NonConstructableChange(input)
+	require.Equal(t, expected, actual)
+}

@@ -1,5 +1,5 @@
-module github.com/ValeryPiashchynski/GoAlgos
+module github.com/rustatian/GoAlgos
 
-go 1.14
+go 1.16
 
-require github.com/stretchr/testify v1.5.1
+require github.com/stretchr/testify v1.7.0

@@ -1,9 +1,5 @@
 package medium
 
-// Do not edit the class below except for
-// the insert, contains, and remove methods.
-// Feel free to add new properties and methods
-// to the class.
 type BST struct {
 	Value int
 
@@ -71,75 +67,24 @@ func (tree *BST) Remove(value int) {
 
 func (tree *BST) remove(value int, parent *BST) {
 	z := tree
+
+	/*
+	we may have 3 concepts here:
+	1. We are deleting the node w/o parents -> just replace with nil
+	2. Node has 1 parent
+	3. Node has 2 parents
+	*/
 	for z != nil {
-		if z.Value > value {
-			// save the parent node
+		// go to the left
+		if value < z.Value {
 			parent = z
 			z = z.Left
-		} else if z.Value < value {
-			// save the parent node
+		} else if value > z.Value {
 			parent = z
 			z = z.Right
-		} else {
-			if z.Left != nil && z.Right != nil {
-				min := tree.treeMinimum()
-				_ = min
-				z = tree.treeMinimum()
-			}
-			// found
-			// invariant 1
-			/*
-						q
-						|
-						Z
-					   / \
-					  /   \
-				    NIL    R
-				          / \
-				         /   \
-
-				We have Z to delete
-				Z has no left child
-				Z has right child
-							q
-							|
-							R
-						   / \
-						  /   \
-			*/
-			if z.Left == nil {
-				tree.transplant(z, parent, z.Right)
-			}
-
-			// invariant 2
-			/*
-							q
-							|
-							Z
-						   / \
-						  /   \
-					     L    NIL
-						/ \
-				       /   \
-					We have Z to delete
-					Z has no right child
-					Z has left child
-								q
-								|
-								R
-							   / \
-							  /   \
-			*/
-
-			if z.Right == nil {
-				tree.transplant(z, parent, z.Left)
-			}
-
-			// both nodes
-			if z.Left != nil && z.Right != nil {
-
-			}
 		}
+
+
 	}
 }
 

@@ -24,13 +24,13 @@ func NonConstructableChange(coins []int) int {
 	for i := 0; i < len(coins)-1; i++ {
 		sum += coins[i]
 
-		if coins[i + 1] > sum + 1 {
+		if coins[i+1] > sum+1 {
 			return sum + 1
 		}
-		if coins[i] < sum + 1 {
+		if coins[i] < sum+1 {
 			continue
 		}
 	}
 
-	return sum + coins[len(coins) - 1] + 1
+	return sum + coins[len(coins)-1] + 1
 }

@@ -69,10 +69,10 @@ func (tree *BST) remove(value int, parent *BST) {
 	z := tree
 
 	/*
-	we may have 3 concepts here:
-	1. We are deleting the node w/o parents -> just replace with nil
-	2. Node has 1 parent
-	3. Node has 2 parents
+		we may have 3 concepts here:
+		1. We are deleting the node w/o parents -> just replace with nil
+		2. Node has 1 parent
+		3. Node has 2 parents
 	*/
 	for z != nil {
 		// go to the left
@@ -83,8 +83,6 @@ func (tree *BST) remove(value int, parent *BST) {
 			parent = z
 			z = z.Right
 		}
-
-
 	}
 }
 

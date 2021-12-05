@@ -5,18 +5,16 @@ type LinkedList struct {
 	Next  *LinkedList
 }
 
-func RemoveDuplicatesFromLinkedList(linkedList *LinkedList) *LinkedList {
-	ll := linkedList
-
-	for ll != nil {
-		if ll.Next != nil {
-
-			if ll.Value == ll.Next.Value {
-				ll = ll.Next
-			}
-
-			ll = ll.Next
+func RemoveDuplicatesFromLinkedList(ll *LinkedList) *LinkedList {
+	node := ll
+	for node != nil {
+		next := node.Next
+		for next != nil && node.Value == next.Value {
+			next = next.Next
 		}
+
+		node.Next = next
+		node = next
 	}
 
 	return ll

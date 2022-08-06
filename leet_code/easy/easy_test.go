@@ -1,4 +1,4 @@
-package main
+package easy
 
 import (
 	"testing"
@@ -28,4 +28,9 @@ func TestTwoSum2(t *testing.T) {
 	require.Len(t, out, 2)
 	require.Equal(t, 2, out[0])
 	require.Equal(t, 0, out[1])
+}
+
+func TestIntersect(t *testing.T) {
+	require.Equal(t, []int{2, 2}, intersect([]int{1, 2, 2, 1}, []int{2, 2}))
+	require.Equal(t, []int{4, 9}, intersect([]int{4, 9, 5}, []int{9, 4, 9, 8, 4}))
 }

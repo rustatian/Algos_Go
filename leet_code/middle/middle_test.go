@@ -4,6 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
+	"github.com/stretchr/testify/require"
 )
 
 func TestValidSudoku(t *testing.T) {
@@ -42,4 +43,41 @@ func TestValidSudoku(t *testing.T) {
 		{'2', '.', '6', '.', '.', '.', '.', '.', '.'},
 		{'.', '.', '.', '.', '.', '.', '.', '.', '.'},
 	}))
+}
+
+func TestRotateArray(t *testing.T) {
+	arr := []int{1, 2, 3, 4, 5, 6, 7}
+	rotate(arr, 3)
+	assert.Equal(t, []int{5, 6, 7, 1, 2, 3, 4}, arr)
+}
+
+func TestUniquePaths(t *testing.T) {
+	require.Equal(t, 28, uniquePaths(3, 7))
+	require.Equal(t, 3, uniquePaths(3, 2))
+}
+
+func TestTreeLevelOrder(t *testing.T) {
+	tr := &TreeNode{
+		Val: 3,
+		Left: &TreeNode{
+			Val:   9,
+			Left:  nil,
+			Right: nil,
+		},
+		Right: &TreeNode{
+			Val: 20,
+			Left: &TreeNode{
+				Val:   7,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   15,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+
+	assert.Equal(t, [][]int{{3}, {9, 20}, {7, 15}}, levelOrder(tr))
 }

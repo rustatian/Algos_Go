@@ -3,6 +3,7 @@ package easy
 import (
 	"testing"
 
+	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
 
@@ -149,4 +150,165 @@ func TestMyQueue(t *testing.T) {
 	require.Equal(t, 1, q.Peek())
 	require.Equal(t, 1, q.Pop())
 	require.False(t, q.Empty())
+}
+
+func TestSquares(t *testing.T) {
+	assert.Equal(t, []int{0, 1, 9, 16, 100}, sortedSquares([]int{-4, -1, 0, 3, 10}))
+}
+
+func TestPreorder(t *testing.T) {
+	tn := &TreeNode{
+		Val:  1,
+		Left: nil,
+		Right: &TreeNode{
+			Val: 2,
+			Left: &TreeNode{
+				Val:   3,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: nil,
+		},
+	}
+
+	assert.Equal(t, []int{1, 2, 3}, preorderTraversal(tn))
+}
+
+func TestMaxDepth(t *testing.T) {
+	//tn := &TreeNode{
+	//	Val: 3,
+	//	Left: &TreeNode{
+	//		Val:   9,
+	//		Left:  nil,
+	//		Right: nil,
+	//	},
+	//	Right: &TreeNode{
+	//		Val: 20,
+	//		Left: &TreeNode{
+	//			Val: 3,
+	//			Left: &TreeNode{
+	//				Val:   15,
+	//				Left:  nil,
+	//				Right: nil,
+	//			},
+	//			Right: &TreeNode{
+	//				Val:   7,
+	//				Left:  nil,
+	//				Right: nil,
+	//			},
+	//		},
+	//		Right: nil,
+	//	},
+	//}
+	//
+	//assert.Equal(t, 3, maxDepth(tn))
+	//
+	//tn2 := &TreeNode{
+	//	Val: 1,
+	//	Left: &TreeNode{
+	//		Val:   2,
+	//		Left:  nil,
+	//		Right: nil,
+	//	},
+	//}
+	//
+	//assert.Equal(t, 2, maxDepth(tn2))
+
+	tn3 := &TreeNode{
+		Val: 1,
+		Left: &TreeNode{
+			Val:  2,
+			Left: nil,
+			Right: &TreeNode{
+				Val:   5,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+		Right: &TreeNode{
+			Val: 3,
+			Left: &TreeNode{
+				Val:   4,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: nil,
+		},
+	}
+
+	assert.Equal(t, 3, maxDepth(tn3))
+}
+
+func TestSymmetricTree(t *testing.T) {
+	tn := &TreeNode{
+		Val: 1,
+		Left: &TreeNode{
+			Val: 2,
+			Left: &TreeNode{
+				Val:   3,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   4,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+		Right: &TreeNode{
+			Val: 2,
+			Left: &TreeNode{
+				Val:   4,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   3,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+
+	assert.True(t, isSymmetric(tn))
+
+	tn2 := &TreeNode{
+		Val: 1,
+		Left: &TreeNode{
+			Val:  2,
+			Left: nil,
+			Right: &TreeNode{
+				Val:   3,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+		Right: &TreeNode{
+			Val:  2,
+			Left: nil,
+			Right: &TreeNode{
+				Val:   3,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+
+	assert.False(t, isSymmetric(tn2))
+
+	tn3 := &TreeNode{
+		Val: 1,
+		Left: &TreeNode{
+			Val:   2,
+			Left:  nil,
+			Right: nil,
+		},
+		Right: &TreeNode{
+			Val:   3,
+			Left:  nil,
+			Right: nil,
+		},
+	}
+
+	assert.False(t, isSymmetric(tn3))
 }

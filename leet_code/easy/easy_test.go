@@ -312,3 +312,121 @@ func TestSymmetricTree(t *testing.T) {
 
 	assert.False(t, isSymmetric(tn3))
 }
+
+func TestPathSum(t *testing.T) {
+	tn := &TreeNode{
+		Val: 5,
+		Left: &TreeNode{
+			Val: 4,
+			Left: &TreeNode{
+				Val: 11,
+				Left: &TreeNode{
+					Val:   7,
+					Left:  nil,
+					Right: nil,
+				},
+				Right: &TreeNode{
+					Val:   2,
+					Left:  nil,
+					Right: nil,
+				},
+			},
+			Right: nil,
+		},
+		Right: &TreeNode{
+			Val: 8,
+			Left: &TreeNode{
+				Val:   13,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:  4,
+				Left: nil,
+				Right: &TreeNode{
+					Val:   1,
+					Left:  nil,
+					Right: nil,
+				},
+			},
+		},
+	}
+
+	assert.True(t, hasPathSum(tn, 22))
+
+	tn2 := &TreeNode{
+		Val: 1,
+		Left: &TreeNode{
+			Val:   2,
+			Left:  nil,
+			Right: nil,
+		},
+		Right: nil,
+	}
+
+	assert.False(t, hasPathSum(tn2, 1))
+}
+
+func TestInvertBT(t *testing.T) {
+	tn := &TreeNode{
+		Val: 4,
+		Left: &TreeNode{
+			Val: 2,
+			Left: &TreeNode{
+				Val:   1,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   3,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+		Right: &TreeNode{
+			Val: 7,
+			Left: &TreeNode{
+				Val:   6,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   9,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+
+	invertTree(tn)
+
+	assert.Equal(t, &TreeNode{
+		Val: 4,
+		Left: &TreeNode{
+			Val: 7,
+			Left: &TreeNode{
+				Val:   9,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   6,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+		Right: &TreeNode{
+			Val: 2,
+			Left: &TreeNode{
+				Val:   3,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   1,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}, tn)
+}

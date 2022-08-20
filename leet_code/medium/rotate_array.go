@@ -1,8 +1,8 @@
-package middle
+package medium
 
 // > 20m, see
 
-func rotate(nums []int, k int) {
+func rotate2(nums []int, k int) {
 	k %= len(nums)
 	// reverse the whole slice
 	rev(nums, 0, len(nums)-1)

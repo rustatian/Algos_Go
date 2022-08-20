@@ -1,6 +1,7 @@
 package easy
 
 import (
+	"fmt"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -142,15 +143,15 @@ func TestRemoveDupLL(t *testing.T) {
 	_ = deleteDuplicates(ln)
 }
 
-func TestMyQueue(t *testing.T) {
-	q := Constructor()
-
-	q.Push(1)
-	q.Push(2)
-	require.Equal(t, 1, q.Peek())
-	require.Equal(t, 1, q.Pop())
-	require.False(t, q.Empty())
-}
+//func TestMyQueue(t *testing.T) {
+//	q := Constructor()
+//
+//	q.Push(1)
+//	q.Push(2)
+//	require.Equal(t, 1, q.Peek())
+//	require.Equal(t, 1, q.Pop())
+//	require.False(t, q.Empty())
+//}
 
 func TestSquares(t *testing.T) {
 	assert.Equal(t, []int{0, 1, 9, 16, 100}, sortedSquares([]int{-4, -1, 0, 3, 10}))
@@ -429,4 +430,159 @@ func TestInvertBT(t *testing.T) {
 			},
 		},
 	}, tn)
+}
+
+func TestLLMiddle(t *testing.T) {
+	ln := &ListNode{
+		Val: 1,
+		Next: &ListNode{
+			Val: 2,
+			Next: &ListNode{
+				Val: 3,
+				Next: &ListNode{
+					Val: 4,
+					Next: &ListNode{
+						Val:  5,
+						Next: nil,
+					},
+				},
+			},
+		},
+	}
+	l := middleNode(ln)
+	fmt.Println(l)
+}
+
+func TestSearchBST(t *testing.T) {
+	bst := &TreeNode{
+		Val: 4,
+		Left: &TreeNode{
+			Val: 2,
+			Left: &TreeNode{
+				Val:   1,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   3,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+		Right: &TreeNode{
+			Val:   7,
+			Left:  nil,
+			Right: nil,
+		},
+	}
+
+	res := searchBST(bst, 5)
+	fmt.Println(res)
+}
+
+func TestTwoSumBST(t *testing.T) {
+	bst := &TreeNode{
+		Val: 5,
+		Left: &TreeNode{
+			Val: 3,
+			Left: &TreeNode{
+				Val:   2,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   4,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+		Right: &TreeNode{
+			Val:  6,
+			Left: nil,
+			Right: &TreeNode{
+				Val:   7,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+
+	assert.True(t, findTarget(bst, 9))
+	assert.False(t, findTarget(bst, 28))
+}
+
+func TestFloodFill(t *testing.T) {
+	assert.Equal(t, [][]int{{2, 2, 2}, {2, 2, 0}, {2, 0, 1}}, floodFill([][]int{{1, 1, 1}, {1, 1, 0}, {1, 0, 1}}, 1, 1, 2))
+}
+
+func TestGetRow(t *testing.T) {
+	assert.Equal(t, []int{1, 3, 3, 1}, getRow(3))
+}
+
+func TestMergeTwoBT(t *testing.T) {
+	r1 := &TreeNode{
+		Val: 1,
+		Left: &TreeNode{
+			Val: 3,
+			Left: &TreeNode{
+				Val:   5,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: nil,
+		},
+		Right: &TreeNode{
+			Val:   2,
+			Left:  nil,
+			Right: nil,
+		},
+	}
+
+	r2 := &TreeNode{
+		Val: 2,
+		Left: &TreeNode{
+			Val:  1,
+			Left: nil,
+			Right: &TreeNode{
+				Val:   4,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+		Right: &TreeNode{
+			Val:  3,
+			Left: nil,
+			Right: &TreeNode{
+				Val:   7,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+
+	assert.Equal(t, &TreeNode{
+		Val: 3,
+		Left: &TreeNode{
+			Val: 4,
+			Left: &TreeNode{
+				Val:   5,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   4,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+		Right: &TreeNode{
+			Val:  5,
+			Left: nil,
+			Right: &TreeNode{
+				Val:   7,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}, mergeTrees(r1, r2))
 }

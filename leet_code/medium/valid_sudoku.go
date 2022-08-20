@@ -1,4 +1,4 @@
-package middle
+package medium
 
 func isValidSudoku(board [][]byte) bool {
 	hm := make(map[byte]bool)

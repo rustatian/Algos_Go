@@ -1,4 +1,4 @@
-package middle
+package medium
 
 func uniquePaths(m int, n int) int {
 	if m == 1 || n == 1 {

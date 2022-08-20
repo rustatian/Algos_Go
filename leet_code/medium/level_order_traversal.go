@@ -1,4 +1,4 @@
-package middle
+package medium
 
 type TreeNode struct {
 	Val   int

@@ -240,3 +240,38 @@ func TestUpdateMatrix(t *testing.T) {
 func TestRottenFruits(t *testing.T) {
 	assert.Equal(t, 4, orangesRotting([][]int{{2, 1, 1}, {1, 1, 0}, {0, 1, 1}}))
 }
+
+func TestSearch2DMatrix(t *testing.T) {
+	m := [][]int{{1, 4, 7, 11, 15}, {2, 5, 8, 12, 19}, {3, 6, 9, 16, 22}, {10, 13, 14, 17, 24}, {18, 21, 23, 26, 30}}
+	assert.True(t, searchMatrix(m, 5))
+	assert.False(t, searchMatrix(m, 20))
+}
+
+func TestNonOverlappingIntervals(t *testing.T) {
+	intervals := [][]int{{1, 2}, {2, 3}, {3, 4}, {1, 3}}
+	assert.Equal(t, 1, eraseOverlapIntervals(intervals))
+
+	//intervals := [][]int{{1, 2}, {1, 2}, {1, 2}, {1, 2}}
+	//assert.Equal(t, 3, eraseOverlapIntervals(intervals))
+}
+
+func TestTripletSub(t *testing.T) {
+	assert.True(t, increasingTriplet([]int{20, 100, 10, 12, 5, 13}))
+	assert.True(t, increasingTriplet([]int{1, 2, 3, 4, 5}))
+	assert.True(t, increasingTriplet([]int{5, 4, 3, 2, 1}))
+	assert.True(t, increasingTriplet([]int{2, 1, 5, 0, 4, 6}))
+}
+
+func TestProductArray(t *testing.T) {
+	assert.Equal(t, []int{24, 12, 8, 6}, productExceptSelf([]int{1, 2, 3, 4}))
+	assert.Equal(t, []int{0, 0, 9, 0, 0}, productExceptSelf([]int{-1, 1, 0, -3, 3}))
+}
+
+func TestCombinations(t *testing.T) {
+	res := combine(4, 2)
+	_ = res
+}
+
+func TestPermutations(t *testing.T) {
+	assert.Equal(t, [][]int{{1, 2, 3}, {1, 3, 2}, {2, 1, 3}, {2, 3, 1}, {3, 1, 2}, {3, 2, 1}}, permute([]int{1, 2, 3}))
+}

@@ -586,3 +586,7 @@ func TestMergeTwoBT(t *testing.T) {
 		},
 	}, mergeTrees(r1, r2))
 }
+
+func TestRunningSum(t *testing.T) {
+	assert.Equal(t, []int{1, 3, 6, 10}, runningSum([]int{1, 2, 3, 4}))
+}

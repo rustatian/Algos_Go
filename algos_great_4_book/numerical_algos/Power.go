@@ -10,7 +10,7 @@ import (
 // A^(MxN) = A^M x A^N
 // That code compared just to 7x7x7x7x7x7x7 <- computations like this
 
-func main() {
+func power() {
 	var (
 		A = flag.Float64("Float64", 7, "Number")
 		P = flag.Int("Power", 0, "Power")

@@ -7,8 +7,8 @@ import (
 
 // X(n+1) = (A x X(n) + B) % M, where A, B, M are constant
 // X(0) - is initial number
-// https://ru.wikipedia.org/wiki/Линейный_конгруэнтный_метод
-func main() {
+// https://en.wikipedia.org/wiki/Linear_congruential_generator
+func linearCongruentialGenerator() {
 	var (
 		A = flag.Int("A", 2121, "A value")
 		B = flag.Int("B", 43424, "B value")

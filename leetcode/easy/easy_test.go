@@ -8,6 +8,14 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestFindNumbers(t *testing.T) {
+	assert.Equal(t, 1, findNumbers([]int{555, 901, 482, 1771}))
+}
+
+func TestConsecutiveOnes(t *testing.T) {
+	assert.Equal(t, 2, findMaxConsecutiveOnes([]int{1, 0, 1, 1, 0, 1}))
+}
+
 func TestTwoSum(t *testing.T) {
 	nums := make([]int, 0, 10)
 	nums = append(nums, 3)

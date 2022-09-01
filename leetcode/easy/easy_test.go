@@ -8,6 +8,25 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestRemoveElement(t *testing.T) {
+	removeElement([]int{3, 3}, 3)
+	removeElement([]int{0, 1, 2, 2, 3, 0, 4, 2}, 2)
+	removeElement([]int{3, 2, 2, 3}, 3)
+}
+
+func TestMergeSortedArray(t *testing.T) {
+	merge([]int{1, 2, 3, 0, 0, 0}, 3, []int{2, 5, 6}, 3)
+	merge([]int{0}, 0, []int{1}, 1)
+	merge([]int{1}, 1, nil, 0)
+	merge([]int{2, 0}, 1, []int{1}, 1)
+}
+
+func TestDuplicateZeros(t *testing.T) {
+	in := []int{8, 4, 5, 0, 0, 0, 0, 7}
+	duplicateZeros(in)
+	assert.Equal(t, []int{8, 4, 5, 0, 0, 0, 0, 0}, in)
+}
+
 func TestFindNumbers(t *testing.T) {
 	assert.Equal(t, 1, findNumbers([]int{555, 901, 482, 1771}))
 }

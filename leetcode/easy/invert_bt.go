@@ -26,7 +26,6 @@ func invertTree(root *TreeNode) *TreeNode {
 			}
 
 			q = q[1:]
-
 		}
 	}
 

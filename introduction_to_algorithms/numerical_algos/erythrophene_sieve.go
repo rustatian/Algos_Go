@@ -5,7 +5,7 @@ import (
 	"math"
 )
 
-func Erythrophene_sieve() {
+func erythropheneSieve() {
 	var maxNumber float64 = 1000000
 
 	// maxNumber + 1
@@ -19,7 +19,7 @@ func Erythrophene_sieve() {
 
 	// except all numbers which multiply founded prime numbers
 	var nextPrime float64 = 3
-	stopAt := math.Sqrt(float64(maxNumber))
+	stopAt := math.Sqrt(maxNumber)
 
 	for nextPrime <= stopAt {
 		// except all numbers which multiply current prime number

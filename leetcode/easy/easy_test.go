@@ -8,6 +8,38 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestMoveZeroes(t *testing.T) {
+	in := []int{1, 0, 1, 0}
+	moveZeroes(in)
+	assert.Equal(t, []int{1, 1, 0, 0}, in)
+	in = []int{0, 1, 0, 3, 12}
+	moveZeroes(in)
+	assert.Equal(t, []int{1, 3, 12, 0, 0}, in)
+}
+
+func TestReplaceElementsWithGreatestElement(t *testing.T) {
+	assert.Equal(t, []int{18, 6, 6, 6, 1, -1}, replaceElements([]int{17, 18, 5, 4, 6, 1}))
+}
+
+func TestValidMountainArray(t *testing.T) {
+	assert.False(t, validMountainArray([]int{9, 8, 7, 6, 5, 4, 3, 2, 1, 0}))
+	assert.False(t, validMountainArray([]int{3, 5, 5}))
+	assert.True(t, validMountainArray([]int{0, 3, 2, 1}))
+}
+
+func TestCheckForDouble(t *testing.T) {
+	assert.True(t, checkIfExist([]int{0, 0}))
+	assert.False(t, checkIfExist([]int{-2, 0, 10, -19, 4, 6, -8}))
+	assert.True(t, checkIfExist([]int{10, 2, 5, 3}))
+	assert.True(t, checkIfExist([]int{7, 1, 14, 11}))
+	assert.False(t, checkIfExist([]int{3, 1, 7, 11}))
+}
+
+func TestRemoveDuplicates(t *testing.T) {
+	assert.Equal(t, 2, removeDuplicates([]int{1, 1, 2}))
+	assert.Equal(t, 5, removeDuplicates([]int{0, 0, 1, 1, 1, 2, 2, 3, 3, 4}))
+}
+
 func TestRemoveElement(t *testing.T) {
 	removeElement([]int{3, 3}, 3)
 	removeElement([]int{0, 1, 2, 2, 3, 0, 4, 2}, 2)

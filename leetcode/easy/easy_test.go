@@ -8,6 +8,10 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestSortArrayByParity(t *testing.T) {
+	assert.Equal(t, []int{2, 4, 3, 1}, sortArrayByParity([]int{3, 1, 2, 4}))
+}
+
 func TestMoveZeroes(t *testing.T) {
 	in := []int{1, 0, 1, 0}
 	moveZeroes(in)

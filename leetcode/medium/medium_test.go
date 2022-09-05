@@ -8,6 +8,12 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestMaxConsecutiveOnes(t *testing.T) {
+	assert.Equal(t, 2, findMaxConsecutiveOnes([]int{1, 0}))
+	//assert.Equal(t, 4, findMaxConsecutiveOnes([]int{1, 0, 1, 1, 0}))
+	//assert.Equal(t, 4, findMaxConsecutiveOnes([]int{1, 0, 1, 1, 0, 1}))
+}
+
 func TestValidSudoku(t *testing.T) {
 	assert.False(t, isValidSudoku([][]byte{
 		{'8', '3', '.', '.', '7', '.', '.', '.', '.'},

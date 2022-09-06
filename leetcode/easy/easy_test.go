@@ -8,6 +8,17 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestThirdMax(t *testing.T) {
+	assert.Equal(t, 2, thirdMax([]int{1, 2, 2, 5, 3, 5}))
+	assert.Equal(t, 2, thirdMax([]int{1, 2}))
+}
+
+func TestFindDisappearedNumbers(t *testing.T) {
+	assert.Equal(t, []int{7, 8}, findDisappearedNumbers([]int{3, 3, 2, 1, 4, 5, 6, 4}))
+	assert.Equal(t, []int{5, 6}, findDisappearedNumbers([]int{4, 3, 2, 7, 8, 2, 3, 1}))
+	assert.Equal(t, []int{2}, findDisappearedNumbers([]int{1, 1}))
+}
+
 func TestSortArrayByParity(t *testing.T) {
 	assert.Equal(t, []int{2, 4, 3, 1}, sortArrayByParity([]int{3, 1, 2, 4}))
 }

@@ -8,6 +8,19 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestValidTree(t *testing.T) {
+	assert.False(t, validTree(5, [][]int{{0, 1}, {0, 4}, {1, 4}, {2, 3}}))
+	//assert.False(t, validTree(4, [][]int{{0, 1}, {2, 3}}))
+	//assert.True(t, validTree(5, [][]int{{0, 1}, {0, 2}, {0, 3}, {1, 4}}))
+	//assert.False(t, validTree(5, [][]int{{0, 1}, {1, 2}, {2, 3}, {1, 3}, {1, 4}}))
+}
+
+func TestFindCircleNum(t *testing.T) {
+	assert.Equal(t, 1, findCircleNum([][]int{{1, 1, 1}, {1, 1, 1}, {1, 1, 1}}))
+	assert.Equal(t, 2, findCircleNum([][]int{{1, 1, 0}, {1, 1, 0}, {0, 0, 1}}))
+	assert.Equal(t, 3, findCircleNum([][]int{{1, 0, 0}, {0, 1, 0}, {0, 0, 1}}))
+}
+
 func TestMaxConsecutiveOnes(t *testing.T) {
 	assert.Equal(t, 2, findMaxConsecutiveOnes([]int{1, 0}))
 	//assert.Equal(t, 4, findMaxConsecutiveOnes([]int{1, 0, 1, 1, 0}))

@@ -8,6 +8,44 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestFindPivotIDX(t *testing.T) {
+	assert.Equal(t, 3, pivotIndex([]int{1, 7, 3, 6, 5, 6}))
+	assert.Equal(t, -1, pivotIndex([]int{1, 2, 3}))
+	assert.Equal(t, 0, pivotIndex([]int{2, 1, -1}))
+}
+
+func TestSameTree(t *testing.T) {
+	b1 := &TreeNode{
+		Val: 1,
+		Right: &TreeNode{
+			Val:   3,
+			Left:  nil,
+			Right: nil,
+		},
+		Left: &TreeNode{
+			Val:   2,
+			Left:  nil,
+			Right: nil,
+		},
+	}
+
+	b2 := &TreeNode{
+		Val: 1,
+		Right: &TreeNode{
+			Val:   3,
+			Left:  nil,
+			Right: nil,
+		},
+		Left: &TreeNode{
+			Val:   2,
+			Left:  nil,
+			Right: nil,
+		},
+	}
+
+	assert.True(t, isSameTree(b1, b2))
+}
+
 func TestThirdMax(t *testing.T) {
 	assert.Equal(t, 2, thirdMax([]int{1, 2, 2, 5, 3, 5}))
 	assert.Equal(t, 2, thirdMax([]int{1, 2}))

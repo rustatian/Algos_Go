@@ -8,11 +8,33 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+//"vbjjxgdfnru"
+//[[8,6],[3,4],[5,2],[5,5],[3,5],[7,10],[6,0],[10,0],[7,1],[4,8],[6,2]]
+
+func TestSmallestStringWithSwaps(t *testing.T) {
+	assert.Equal(t, "bdfgjjnuvrx", smallestStringWithSwaps("vbjjxgdfnru", [][]int{{8,6},{3,4},{5,2},{5,5},{3,5},{7,10},{6,0},{10,0},{7,1},{4,8},{6,2}}))
+	assert.Equal(t, "bacd", smallestStringWithSwaps("dcab", [][]int{{0, 3}, {1, 2}}))
+	assert.Equal(t, "abcd", smallestStringWithSwaps("dcab", [][]int{{0, 3}, {1, 2}, {0, 2}}))
+	assert.Equal(t, "abc", smallestStringWithSwaps("cba", [][]int{{0, 1}, {1, 2}}))
+}
+
+func TestEarliestAcq(t *testing.T) {
+	assert.Equal(t, 20190301, earliestAcq([][]int{{20190101, 0, 1}, {20190104, 3, 4}, {20190107, 2, 3}, {20190211, 1, 5}, {20190224, 2, 4}, {20190301, 0, 3}, {20190312, 1, 2}, {20190322, 4, 5}}, 6))
+	assert.Equal(t, 3, earliestAcq([][]int{{0, 2, 0}, {1, 0, 1}, {3, 0, 3}, {4, 1, 2}, {7, 3, 1}}, 4))
+}
+
+func TestNumberOfComponents(t *testing.T) {
+	assert.Equal(t, 1, countComponents(4, [][]int{{0, 1}, {2, 3}, {1, 2}}))
+	assert.Equal(t, 2, countComponents(5, [][]int{{0, 1}, {0, 4}, {1, 4}, {2, 3}}))
+	assert.Equal(t, 2, countComponents(5, [][]int{{0, 1}, {1, 2}, {3, 4}}))
+	assert.Equal(t, 1, countComponents(5, [][]int{{0, 1}, {1, 2}, {2, 3}, {3, 4}}))
+}
+
 func TestValidTree(t *testing.T) {
 	assert.False(t, validTree(5, [][]int{{0, 1}, {0, 4}, {1, 4}, {2, 3}}))
-	//assert.False(t, validTree(4, [][]int{{0, 1}, {2, 3}}))
-	//assert.True(t, validTree(5, [][]int{{0, 1}, {0, 2}, {0, 3}, {1, 4}}))
-	//assert.False(t, validTree(5, [][]int{{0, 1}, {1, 2}, {2, 3}, {1, 3}, {1, 4}}))
+	assert.False(t, validTree(4, [][]int{{0, 1}, {2, 3}}))
+	assert.True(t, validTree(5, [][]int{{0, 1}, {0, 2}, {0, 3}, {1, 4}}))
+	assert.False(t, validTree(5, [][]int{{0, 1}, {1, 2}, {2, 3}, {1, 3}, {1, 4}}))
 }
 
 func TestFindCircleNum(t *testing.T) {

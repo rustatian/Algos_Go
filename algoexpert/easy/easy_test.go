@@ -7,30 +7,14 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func NewNode(name string) *Node {
-	return &Node{
-		Name:     name,
-		Children: []*Node{},
-	}
-}
-
-func (n *Node) AddChildren(names ...string) *Node {
-	for _, name := range names {
-		child := Node{Name: name}
-		n.Children = append(n.Children, &child)
-	}
-	return n
-}
-
-func TestNode_DepthFirstSearch(t *testing.T) {
-	var graph = NewNode("A").AddChildren("B", "C", "D")
-	graph.Children[0].AddChildren("E").AddChildren("F")
-	graph.Children[2].AddChildren("G").AddChildren("H")
-	graph.Children[0].Children[1].AddChildren("I").AddChildren("J")
-	graph.Children[2].Children[0].AddChildren("K")
-	output := graph.DepthFirstSearch([]string{})
-	expected := []string{"A", "B", "E", "F", "I", "J", "C", "D", "G", "K", "H"}
-	require.Equal(t, expected, output)
+func TestPlusOne(t *testing.T) {
+	assert.Equal(t, []int{2}, plusOne([]int{1}))
+	assert.Equal(t, []int{1, 2, 4}, plusOne([]int{1, 2, 3}))
+	assert.Equal(t, []int{4, 3, 2, 2}, plusOne([]int{4, 3, 2, 1}))
+	assert.Equal(t, []int{1,0}, plusOne([]int{9}))
+	assert.Equal(t, []int{1}, plusOne([]int{0}))
+	assert.Equal(t, []int{9,0,0}, plusOne([]int{8,9,9}))
+	assert.Equal(t, []int{1,0,0,0}, plusOne([]int{9,9,9}))
 }
 
 func TestBranchSums(t *testing.T) {
@@ -39,6 +23,7 @@ func TestBranchSums(t *testing.T) {
 	output := BranchSums(tree)
 	require.Equal(t, expected, output)
 }
+
 func TestIsValidSubsequence(t *testing.T) {
 	assert.True(t, IsValidSubsequence([]int{5, 1, 22, 25, 6, -1, 8, 10}, []int{22, 25, 6}))
 }

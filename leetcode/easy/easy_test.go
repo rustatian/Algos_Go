@@ -8,6 +8,12 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestValidPath(t *testing.T) {
+	assert.True(t, validPath(10, [][]int{{2, 6}, {4, 7}, {1, 2}, {3, 5}, {7, 9}, {6, 4}, {9, 8}, {0, 1}, {3, 0}}, 3, 5))
+	assert.True(t, validPath(3, [][]int{{0, 1}, {1, 2}, {2, 0}}, 0, 2))
+	assert.False(t, validPath(6, [][]int{{0, 1}, {0, 2}, {3, 5}, {5, 4}, {4, 3}}, 0, 5))
+}
+
 func TestFindPivotIDX(t *testing.T) {
 	assert.Equal(t, 3, pivotIndex([]int{1, 7, 3, 6, 5, 6}))
 	assert.Equal(t, -1, pivotIndex([]int{1, 2, 3}))

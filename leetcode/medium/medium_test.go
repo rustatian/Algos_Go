@@ -8,11 +8,49 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-//"vbjjxgdfnru"
-//[[8,6],[3,4],[5,2],[5,5],[3,5],[7,10],[6,0],[10,0],[7,1],[4,8],[6,2]]
+func TestContinuousSum(t *testing.T) {
+	assert.True(t, checkSubarraySum([]int{1, 3, 6, 0, 9, 6, 9}, 7))
+	assert.True(t, checkSubarraySum([]int{1, 2, 3}, 6))
+	assert.False(t, checkSubarraySum([]int{5, 2, 4}, 5))
+	assert.False(t, checkSubarraySum([]int{0, 1, 0, 3, 0, 4, 0, 4, 0}, 5))
+	assert.True(t, checkSubarraySum([]int{5, 0, 0, 0}, 3))
+	assert.True(t, checkSubarraySum([]int{23, 2, 4, 6, 6}, 7))
+	assert.True(t, checkSubarraySum([]int{23, 2, 4, 6, 7}, 6))
+	assert.True(t, checkSubarraySum([]int{23, 2, 6, 4, 7}, 6))
+	assert.False(t, checkSubarraySum([]int{23, 2, 6, 4, 7}, 13))
+}
+
+func TestCloneGraph(t *testing.T) {
+	node := new(Node2)
+
+	node.Val = 2
+	node.Neighbors = append(node.Neighbors)
+}
+
+func TestAllPathsFromSourceToTarget(t *testing.T) {
+	assert.Equal(t, [][]int{{0, 4}, {0, 3, 4}, {0, 1, 3, 4}, {0, 1, 2, 3, 4}, {0, 1, 4}}, allPathsSourceTarget([][]int{{4, 3, 1}, {3, 2, 4}, {3}, {4}, {}}))
+	assert.Equal(t, [][]int{{0, 1, 3}, {0, 2, 3}}, allPathsSourceTarget([][]int{{1, 2}, {3}, {3}, {}}))
+}
+
+func TestNumRollsToTarget(t *testing.T) {
+	assert.Equal(t, 1, numRollsToTarget(1, 6, 3))
+	assert.Equal(t, 6, numRollsToTarget(2, 6, 7))
+	assert.Equal(t, 1000000007, numRollsToTarget(30, 30, 500))
+}
+
+func TestDecodeWays(t *testing.T) {
+	assert.Equal(t, 1, numDecodings("10"))
+	assert.Equal(t, 2, numDecodings("12"))
+	assert.Equal(t, 3, numDecodings("226"))
+	assert.Equal(t, 0, numDecodings("06"))
+}
+
+func TestEvaluateDivision(t *testing.T) {
+	assert.Equal(t, []float64{6.00000, 0.50000, -1.00000, 1.00000, -1.00000}, calcEquation([][]string{{"a", "b"}, {"b", "c"}}, []float64{2.0, 3.0}, [][]string{{"a", "c"}, {"b", "a"}, {"a", "e"}, {"a", "a"}, {"x", "x"}}))
+}
 
 func TestSmallestStringWithSwaps(t *testing.T) {
-	assert.Equal(t, "bdfgjjnuvrx", smallestStringWithSwaps("vbjjxgdfnru", [][]int{{8,6},{3,4},{5,2},{5,5},{3,5},{7,10},{6,0},{10,0},{7,1},{4,8},{6,2}}))
+	assert.Equal(t, "bdfgjjnuvrx", smallestStringWithSwaps("vbjjxgdfnru", [][]int{{8, 6}, {3, 4}, {5, 2}, {5, 5}, {3, 5}, {7, 10}, {6, 0}, {10, 0}, {7, 1}, {4, 8}, {6, 2}}))
 	assert.Equal(t, "bacd", smallestStringWithSwaps("dcab", [][]int{{0, 3}, {1, 2}}))
 	assert.Equal(t, "abcd", smallestStringWithSwaps("dcab", [][]int{{0, 3}, {1, 2}, {0, 2}}))
 	assert.Equal(t, "abc", smallestStringWithSwaps("cba", [][]int{{0, 1}, {1, 2}}))

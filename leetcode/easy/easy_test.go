@@ -8,6 +8,23 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestLargestPerimeter(t *testing.T) {
+	assert.Equal(t, 5, largestPerimeter([]int{2, 1, 2}))
+	assert.Equal(t, 0, largestPerimeter([]int{1, 2, 1}))
+}
+
+func TestContainsDuplicates(t *testing.T) {
+	assert.True(t, containsNearbyDuplicate([]int{1, 2, 3, 1}, 3))
+	assert.True(t, containsNearbyDuplicate([]int{1, 0, 1, 1}, 1))
+	assert.False(t, containsNearbyDuplicate([]int{1, 2, 3, 1, 2, 3}, 2))
+}
+
+func TestIsValidPalindrome(t *testing.T) {
+	assert.True(t, isPalindrome("A man, a plan, a canal: Panama"))
+	assert.True(t, isPalindrome("a."))
+	assert.False(t, isPalindrome("0P"))
+}
+
 func TestValidPath(t *testing.T) {
 	assert.True(t, validPath(10, [][]int{{2, 6}, {4, 7}, {1, 2}, {3, 5}, {7, 9}, {6, 4}, {9, 8}, {0, 1}, {3, 0}}, 3, 5))
 	assert.True(t, validPath(3, [][]int{{0, 1}, {1, 2}, {2, 0}}, 0, 2))

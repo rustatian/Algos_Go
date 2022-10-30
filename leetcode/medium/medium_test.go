@@ -8,6 +8,10 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestLeadsToDestination(t *testing.T) {
+	assert.False(t, leadsToDestination(3, [][]int{{0, 1}, {0, 2}}, 0, 2))
+}
+
 func TestContinuousSum(t *testing.T) {
 	assert.True(t, checkSubarraySum([]int{1, 3, 6, 0, 9, 6, 9}, 7))
 	assert.True(t, checkSubarraySum([]int{1, 2, 3}, 6))

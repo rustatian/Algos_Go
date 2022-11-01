@@ -5,7 +5,7 @@ type MyHashMap struct {
 	keyvals    []int
 }
 
-func Constructor() MyHashMap {
+func Constructor1() MyHashMap {
 	myHm := MyHashMap{
 		biggestIDX: 1000000,
 		keyvals:    make([]int, 1000000),

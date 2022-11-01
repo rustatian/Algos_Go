@@ -8,6 +8,19 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestTicTacToe(t *testing.T) {
+	assert.Equal(t, "A", tictactoe([][]int{{0, 0}, {2, 0}, {1, 1}, {2, 1}, {2, 2}}))
+}
+
+func TestDesignOrderedStream(t *testing.T) {
+	os := Constructor(5)
+	assert.Equal(t, []string{}, os.Insert(3, "ccccc"))
+	assert.Equal(t, []string{"aaaaa"}, os.Insert(1, "aaaaa"))
+	assert.Equal(t, []string{"bbbbb", "ccccc"}, os.Insert(2, "bbbbb"))
+	assert.Equal(t, []string{}, os.Insert(5, "eeeee"))
+	assert.Equal(t, []string{"ddddd", "eeeee"}, os.Insert(4, "ddddd"))
+}
+
 func TestLargestPerimeter(t *testing.T) {
 	assert.Equal(t, 5, largestPerimeter([]int{2, 1, 2}))
 	assert.Equal(t, 0, largestPerimeter([]int{1, 2, 1}))

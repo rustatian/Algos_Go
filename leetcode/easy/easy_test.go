@@ -8,6 +8,13 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestLongestPalindrome(t *testing.T) {
+	assert.Equal(t, 999, longestPalindrome("abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababa"))
+	assert.Equal(t, 3, longestPalindrome("ccc"))
+	assert.Equal(t, 7, longestPalindrome("abccccdd"))
+	assert.Equal(t, 1, longestPalindrome("a"))
+}
+
 func TestTicTacToe(t *testing.T) {
 	assert.Equal(t, "A", tictactoe([][]int{{0, 0}, {2, 0}, {1, 1}, {2, 1}, {2, 2}}))
 }

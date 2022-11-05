@@ -8,6 +8,25 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestLongestPalindrome(t *testing.T) {
+	assert.Equal(t, 22, longestPalindrome([]string{"dd","aa","bb","dd","aa","dd","bb","dd","aa","cc","bb","cc","dd","cc"}))
+	assert.Equal(t, 6, longestPalindrome([]string{"lc", "cl", "gg"}))
+	assert.Equal(t, 8, longestPalindrome([]string{"ab", "ty", "yt", "lc", "cl", "ab"}))
+	assert.Equal(t, 2, longestPalindrome([]string{"cc", "ll", "xx"}))
+}
+
+func TestMinimumGeneticMutation(t *testing.T) {
+	assert.Equal(t, 4, minMutation("AAAACCCC", "CCCCCCCC", []string{"AAAACCCA", "AAACCCCA", "AACCCCCA", "AACCCCCC", "ACCCCCCC", "CCCCCCCC", "AAACCCCC", "AACCCCCC"}))
+	assert.Equal(t, -1, minMutation("AACCTTGG", "AATTCCGG", []string{"AATTCCGG", "AACCTGGG", "AACCCCGG", "AACCTACC"}))
+	assert.Equal(t, 1, minMutation("AACCGGTT", "AACCGGTA", []string{"AACCGGTA"}))
+	assert.Equal(t, 2, minMutation("AACCGGTT", "AAACGGTA", []string{"AACCGGTA", "AACCGCTA", "AAACGGTA"}))
+	assert.Equal(t, 3, minMutation("AAAAACCC", "AACCCCCC", []string{"AAAACCCC", "AAACCCCC", "AACCCCCC"}))
+}
+
+func TestFindBall(t *testing.T) {
+	assert.Equal(t, []int{1, -1, -1, -1, -1}, findBall([][]int{{1, 1, 1, -1, -1}, {1, 1, 1, -1, -1}, {-1, -1, -1, 1, 1}, {1, 1, 1, 1, -1}, {-1, -1, -1, -1, -1}}))
+}
+
 func TestLeadsToDestination(t *testing.T) {
 	assert.False(t, leadsToDestination(3, [][]int{{0, 1}, {0, 2}}, 0, 2))
 }

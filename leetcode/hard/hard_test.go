@@ -6,8 +6,17 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestFindMedian(t *testing.T) {
+	c := Constructor()
+	c.AddNum(1)
+	c.AddNum(2)
+	assert.Equal(t, 1.5, c.FindMedian())
+	c.AddNum(3)
+	assert.Equal(t, 2.0, c.FindMedian())
+}
+
 func TestWordSearch(t *testing.T) {
-	//assert.Equal(t, nil, findWords([][]byte{{'a'}}, nil))
+	assert.Equal(t, nil, findWords([][]byte{{'a'}}, nil))
 	assert.Equal(t, []string{"eat", "oath"}, findWords([][]byte{{'o', 'a', 'a', 'n'}, {'e', 't', 'a', 'e'}, {'i', 'h', 'k', 'r'}, {'i', 'f', 'l', 'v'}}, []string{"oath", "pea", "eat", "rain"}))
 }
 

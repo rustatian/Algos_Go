@@ -8,8 +8,46 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestDailyTemperature(t *testing.T) {
+	assert.Equal(t, []int{1, 1, 4, 2, 1, 1, 0, 0}, dailyTemperatures([]int{73, 74, 75, 71, 69, 72, 76, 73}))
+}
+
+func TestWordSearch(t *testing.T) {
+	assert.True(t, exist([][]byte{{'A', 'B', 'C', 'E'}, {'S', 'F', 'C', 'S'}, {'A', 'D', 'E', 'E'}}, "ABCCED"))
+}
+
+func TestOnlineStockSpan(t *testing.T) {
+	st := Constructor()
+	assert.Equal(t, 1, st.Next(100)) // return 1
+	assert.Equal(t, 1, st.Next(80))  // return 1
+	assert.Equal(t, 1, st.Next(60))  // return 1
+	assert.Equal(t, 2, st.Next(70))  // return 2
+	assert.Equal(t, 1, st.Next(60))  // return 1
+	assert.Equal(t, 4, st.Next(75))  // return 4, because the last 4 prices (including today's price of 75) were less than or equal to today's price.
+	assert.Equal(t, 6, st.Next(85))  // return 6
+
+	st2 := Constructor()
+	assert.Equal(t, 1, st2.Next(29)) // return 1
+	assert.Equal(t, 2, st2.Next(91)) // return 1
+	assert.Equal(t, 1, st2.Next(62)) // return 1
+	assert.Equal(t, 2, st2.Next(76)) // return 2
+	assert.Equal(t, 1, st2.Next(51)) // return 1
+
+	st3 := Constructor()
+	assert.Equal(t, 1, st3.Next(28))  // return 1
+	assert.Equal(t, 1, st3.Next(14))  // return 1
+	assert.Equal(t, 3, st3.Next(28))  // return 1
+	assert.Equal(t, 4, st3.Next(35))  // return 2
+	assert.Equal(t, 5, st3.Next(46))  // return 1
+	assert.Equal(t, 6, st3.Next(53))  // return 1
+	assert.Equal(t, 7, st3.Next(66))  // return 1
+	assert.Equal(t, 8, st3.Next(80))  // return 1
+	assert.Equal(t, 9, st3.Next(87))  // return 1
+	assert.Equal(t, 10, st3.Next(88)) // return 1
+}
+
 func TestLongestPalindrome(t *testing.T) {
-	assert.Equal(t, 22, longestPalindrome([]string{"dd","aa","bb","dd","aa","dd","bb","dd","aa","cc","bb","cc","dd","cc"}))
+	assert.Equal(t, 22, longestPalindrome([]string{"dd", "aa", "bb", "dd", "aa", "dd", "bb", "dd", "aa", "cc", "bb", "cc", "dd", "cc"}))
 	assert.Equal(t, 6, longestPalindrome([]string{"lc", "cl", "gg"}))
 	assert.Equal(t, 8, longestPalindrome([]string{"ab", "ty", "yt", "lc", "cl", "ab"}))
 	assert.Equal(t, 2, longestPalindrome([]string{"cc", "ll", "xx"}))

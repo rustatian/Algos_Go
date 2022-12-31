@@ -8,6 +8,49 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestMeetingRooms(t *testing.T) {
+	assert.False(t, canAttendMeetings([][]int{{5, 8}, {6, 8}}))
+	assert.False(t, canAttendMeetings([][]int{{0, 30}, {5, 10}, {15, 20}}))
+	assert.True(t, canAttendMeetings([][]int{{7, 10}, {2, 4}}))
+}
+
+func TestMinDepthBinTree(t *testing.T) {
+	tr := &TreeNode{
+		Val: 3,
+		Left: &TreeNode{
+			Val:   9,
+			Left:  nil,
+			Right: nil,
+		},
+		Right: &TreeNode{
+			Val: 20,
+			Left: &TreeNode{
+				Val:   15,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   7,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+
+	assert.Equal(t, 2, minDepth(tr))
+}
+
+func TestMakeTheStringGreat(t *testing.T) {
+	assert.Equal(t, "leetcode", makeGood("leEeetcode"))
+	assert.Equal(t, "", makeGood("abBAcC"))
+	assert.Equal(t, "s", makeGood("s"))
+	assert.Equal(t, "", makeGood("Pp"))
+}
+
+func TestMax69(t *testing.T) {
+	assert.Equal(t, 9969, maximum69Number(9669))
+}
+
 func TestLongestPalindrome(t *testing.T) {
 	assert.Equal(t, 999, longestPalindrome("abababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababababa"))
 	assert.Equal(t, 3, longestPalindrome("ccc"))

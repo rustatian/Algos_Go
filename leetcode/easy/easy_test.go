@@ -8,6 +8,13 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestMinDeletionSize(t *testing.T) {
+	assert.Equal(t, 1, minDeletionSize([]string{"rrjk", "furt", "guzm"}))
+	assert.Equal(t, 1, minDeletionSize([]string{"abc", "bce", "cae"}))
+	assert.Equal(t, 0, minDeletionSize([]string{"a", "b"}))
+	assert.Equal(t, 3, minDeletionSize([]string{"zyx", "wvu", "tsr"}))
+}
+
 func TestMeetingRooms(t *testing.T) {
 	assert.False(t, canAttendMeetings([][]int{{5, 8}, {6, 8}}))
 	assert.False(t, canAttendMeetings([][]int{{0, 30}, {5, 10}, {15, 20}}))

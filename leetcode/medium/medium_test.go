@@ -8,6 +8,11 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestMinRounds(t *testing.T) {
+	assert.Equal(t, 4, minimumRounds([]int{2, 2, 3, 3, 2, 4, 4, 4, 4, 4}))
+	assert.Equal(t, -1, minimumRounds([]int{2, 3, 3}))
+}
+
 func TestDailyTemperature(t *testing.T) {
 	assert.Equal(t, []int{1, 1, 4, 2, 1, 1, 0, 0}, dailyTemperatures([]int{73, 74, 75, 71, 69, 72, 76, 73}))
 }

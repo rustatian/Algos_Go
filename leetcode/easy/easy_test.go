@@ -8,6 +8,58 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestBalancedBT(t *testing.T) {
+	tn := &TreeNode{
+		Val:   3,
+		Left:  &TreeNode{
+			Val:   9,
+			Left:  nil,
+			Right: nil,
+		},
+		Right: &TreeNode{
+			Val:   20,
+			Left:  &TreeNode{
+				Val:   15,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   7,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+	assert.True(t, isBalanced(tn))
+
+
+	tn2 := &TreeNode{
+		Val:   3,
+		Left:  &TreeNode{
+			Val:   2,
+			Left:  &TreeNode{
+				Val:   3,
+				Left:  &TreeNode{
+					Val:   4,
+					Left:  nil,
+					Right: nil,
+				},
+				Right: &TreeNode{
+					Val:   4,
+					Left:  nil,
+					Right: nil,
+				},
+			},
+			Right: &TreeNode{
+				Val:   3,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+	assert.False(t, isBalanced(tn2))
+}
+
 func TestMinDeletionSize(t *testing.T) {
 	assert.Equal(t, 1, minDeletionSize([]string{"rrjk", "furt", "guzm"}))
 	assert.Equal(t, 1, minDeletionSize([]string{"abc", "bce", "cae"}))

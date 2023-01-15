@@ -6,6 +6,10 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
+func TestFindItinerary(t *testing.T) {
+	assert.Equal(t, []string{"JFK", "MUC", "LHR", "SFO", "SJC"}, findItinerary([][]string{{"MUC", "LHR"}, {"JFK", "MUC"}, {"SFO", "SJC"}, {"LHR", "SFO"}}))
+}
+
 func TestFindMedian(t *testing.T) {
 	c := Constructor()
 	c.AddNum(1)

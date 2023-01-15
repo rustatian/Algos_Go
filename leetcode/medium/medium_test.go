@@ -8,6 +8,13 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestLexicographicallySmallestEqString(t *testing.T) {
+	assert.Equal(t, "azazaaaaaaaaaaaaaaaaaawaaaaavavaaaaaxazwyzaaaavaaa", smallestEquivalentString("sdqldcfrjsmdgdbfbnbmtqotjpkslbtenpdkqnqmipkgloldhu", "ngmhdmanopnasmqslijqkmeffismuhstnggrfrkujnpgfaoqtb", "hzczmpdghfcciknjnerrohwcrunovgvebhuexezwyziqtsvifd"))
+	assert.Equal(t, "aauaaaaada", smallestEquivalentString("leetcode", "programs", "sourcecode"))
+	assert.Equal(t, "aab", smallestEquivalentString("abc", "cde", "eed"))
+	assert.Equal(t, "makkek", smallestEquivalentString("parker", "morris", "parser"))
+}
+
 func TestMinRounds(t *testing.T) {
 	assert.Equal(t, 4, minimumRounds([]int{2, 2, 3, 3, 2, 4, 4, 4, 4, 4}))
 	assert.Equal(t, -1, minimumRounds([]int{2, 3, 3}))

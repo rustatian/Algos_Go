@@ -8,17 +8,84 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestBalancedBT(t *testing.T) {
+func TestStackUsingQueues(t *testing.T) {
+	ms := Constructor2()
+	ms.Push(1)
+	ms.Push(2)
+	assert.Equal(t, 2, ms.Top())
+	assert.Equal(t, 2, ms.Pop())
+	assert.False(t, ms.Empty())
+}
+
+func TestExcelAlphabet(t *testing.T) {
+	assert.Equal(t, "ZZZ", convertToTitle(17576))
+	assert.Equal(t, "AB", convertToTitle(28))
+	assert.Equal(t, "ZY", convertToTitle(701))
+}
+
+func TestMinAbsDiff(t *testing.T) {
 	tn := &TreeNode{
-		Val:   3,
-		Left:  &TreeNode{
+		Val: 4,
+		Left: &TreeNode{
+			Val: 2,
+			Left: &TreeNode{
+				Val:   1,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   3,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+		Right: &TreeNode{
+			Val:   6,
+			Left:  nil,
+			Right: nil,
+		},
+	}
+
+	assert.Equal(t, 1, getMinimumDifference(tn))
+}
+
+func TestSumOfLeftLeaves(t *testing.T) {
+	tr := &TreeNode{
+		Val: 3,
+		Left: &TreeNode{
 			Val:   9,
 			Left:  nil,
 			Right: nil,
 		},
 		Right: &TreeNode{
-			Val:   20,
-			Left:  &TreeNode{
+			Val: 20,
+			Left: &TreeNode{
+				Val:   15,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   7,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+
+	assert.Equal(t, 24, sumOfLeftLeaves(tr))
+}
+
+func TestBalancedBT(t *testing.T) {
+	tn := &TreeNode{
+		Val: 3,
+		Left: &TreeNode{
+			Val:   9,
+			Left:  nil,
+			Right: nil,
+		},
+		Right: &TreeNode{
+			Val: 20,
+			Left: &TreeNode{
 				Val:   15,
 				Left:  nil,
 				Right: nil,
@@ -32,14 +99,13 @@ func TestBalancedBT(t *testing.T) {
 	}
 	assert.True(t, isBalanced(tn))
 
-
 	tn2 := &TreeNode{
-		Val:   3,
-		Left:  &TreeNode{
-			Val:   2,
-			Left:  &TreeNode{
-				Val:   3,
-				Left:  &TreeNode{
+		Val: 3,
+		Left: &TreeNode{
+			Val: 2,
+			Left: &TreeNode{
+				Val: 3,
+				Left: &TreeNode{
 					Val:   4,
 					Left:  nil,
 					Right: nil,
@@ -97,6 +163,24 @@ func TestMinDepthBinTree(t *testing.T) {
 	}
 
 	assert.Equal(t, 2, minDepth(tr))
+
+	tr = &TreeNode{
+		Val: 2,
+		Right: &TreeNode{
+			Val: 3,
+			Right: &TreeNode{
+				Val: 4,
+				Right: &TreeNode{
+					Val: 5,
+					Right: &TreeNode{
+						Val: 6,
+					},
+				},
+			},
+		},
+	}
+
+	assert.Equal(t, 5, minDepth(tr))
 }
 
 func TestMakeTheStringGreat(t *testing.T) {

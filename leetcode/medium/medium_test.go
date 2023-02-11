@@ -8,6 +8,50 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestJumpGame(t *testing.T) {
+	assert.Equal(t, 2, jump([]int{2, 3, 1, 1, 4}))
+}
+
+func TestFindAnagrams(t *testing.T) {
+	assert.Equal(t, []int{0, 6}, findAnagrams("cbaebabacd", "abc"))
+}
+
+func TestInsertInterval(t *testing.T) {
+	assert.Equal(t, [][]int{{1, 5}, {6, 9}}, insert([][]int{{1, 3}, {6, 9}}, []int{2, 5}))
+}
+
+func TestBTverticalOrder(t *testing.T) {
+	tn := &TreeNode{
+		Val: 3,
+		Left: &TreeNode{
+			Val:   9,
+			Left:  nil,
+			Right: nil,
+		},
+		Right: &TreeNode{
+			Val: 20,
+			Left: &TreeNode{
+				Val:   15,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   7,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+
+	assert.Equal(t, [][]int{{9}, {3, 15}, {20}, {7}}, verticalOrder(tn))
+
+	tn2 := &TreeNode{
+		Val: 1,
+	}
+
+	assert.Equal(t, [][]int{{1}}, verticalOrder(tn2))
+}
+
 func TestLexicographicallySmallestEqString(t *testing.T) {
 	assert.Equal(t, "azazaaaaaaaaaaaaaaaaaawaaaaavavaaaaaxazwyzaaaavaaa", smallestEquivalentString("sdqldcfrjsmdgdbfbnbmtqotjpkslbtenpdkqnqmipkgloldhu", "ngmhdmanopnasmqslijqkmeffismuhstnggrfrkujnpgfaoqtb", "hzczmpdghfcciknjnerrohwcrunovgvebhuexezwyziqtsvifd"))
 	assert.Equal(t, "aauaaaaada", smallestEquivalentString("leetcode", "programs", "sourcecode"))

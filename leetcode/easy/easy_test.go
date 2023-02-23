@@ -8,6 +8,10 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestMissingRanges(t *testing.T) {
+	assert.Equal(t, []string{"2", "4->49", "51->74", "76->99"}, findMissingRanges([]int{0, 1, 3, 50, 75}, 0, 99))
+}
+
 func TestStackUsingQueues(t *testing.T) {
 	ms := Constructor2()
 	ms.Push(1)

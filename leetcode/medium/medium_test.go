@@ -8,6 +8,78 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestPairsOfSongs(t *testing.T) {
+	assert.Equal(t, 3, numPairsDivisibleBy60([]int{30, 20, 150, 100, 40}))
+}
+
+func TestLongestPalindromicSubs(t *testing.T) {
+	assert.Equal(t, "bab", longestPalindrome2("babad"))
+}
+
+func TestRecoverBST(t *testing.T) {
+	tn := &TreeNode{
+		Val: 3,
+		Right: &TreeNode{
+			Val: 4,
+			Left: &TreeNode{
+				Val:   2,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: nil,
+		},
+		Left: &TreeNode{
+			Val:   1,
+			Left:  nil,
+			Right: nil,
+		},
+	}
+
+	recoverTree(tn)
+
+	tn2 := &TreeNode{
+		Val:   1,
+		Right: nil,
+		Left: &TreeNode{
+			Val:  3,
+			Left: nil,
+			Right: &TreeNode{
+				Val:   2,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+
+	recoverTree(tn2)
+}
+
+func TestBTZigZagTraversal(t *testing.T) {
+	tn := &TreeNode{
+		Val: 3,
+		Left: &TreeNode{
+			Val:   9,
+			Left:  nil,
+			Right: nil,
+		},
+		Right: &TreeNode{
+			Val: 20,
+			Left: &TreeNode{
+				Val:   15,
+				Left:  nil,
+				Right: nil,
+			},
+			Right: &TreeNode{
+				Val:   7,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+
+	assert.Equal(t, [][]int{{3}, {20, 9}, {15, 7}}, zigzagLevelOrder(tn))
+}
+
 func TestJumpGame(t *testing.T) {
 	assert.Equal(t, 2, jump([]int{2, 3, 1, 1, 4}))
 }

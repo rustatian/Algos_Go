@@ -8,6 +8,15 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestLLRandomNode(t *testing.T) {
+
+}
+
+func TestHouseRobber(t *testing.T) {
+	assert.Equal(t, 4, rob([]int{1, 2, 3, 1}))
+	assert.Equal(t, 12, rob([]int{2, 7, 9, 3, 1}))
+}
+
 func TestPairsOfSongs(t *testing.T) {
 	assert.Equal(t, 3, numPairsDivisibleBy60([]int{30, 20, 150, 100, 40}))
 }

@@ -8,6 +8,17 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestClimbingStairs(t *testing.T) {
+	assert.Equal(t, 8, climbStairs(5))
+	assert.Equal(t, 2, climbStairs(2))
+	assert.Equal(t, 3, climbStairs(3))
+}
+
+func TestFindErrorNum(t *testing.T) {
+	assert.Equal(t, []int{2, 3}, findErrorNums([]int{1, 2, 2, 4}))
+	assert.Equal(t, []int{1, 2}, findErrorNums([]int{1, 1}))
+}
+
 func TestMissingRanges(t *testing.T) {
 	assert.Equal(t, []string{"2", "4->49", "51->74", "76->99"}, findMissingRanges([]int{0, 1, 3, 50, 75}, 0, 99))
 }

@@ -8,8 +8,36 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
-func TestLLRandomNode(t *testing.T) {
+func TestTrie(t *testing.T) {
+	trie := Constructor()
+	trie.Insert("apple")
+	assert.True(t, trie.Search("apple"))   // return True
+	assert.False(t, trie.Search("app"))    // return False
+	assert.True(t, trie.StartsWith("app")) // return True
+	trie.Insert("app")
+	assert.True(t, trie.Search("app")) // return True
+}
 
+func TestSumRootToLeaf(t *testing.T) {
+	tn := &TreeNode{
+		Val: 1,
+		Left: &TreeNode{
+			Val:   5,
+			Left:  nil,
+			Right: nil,
+		},
+		Right: &TreeNode{
+			Val:  1,
+			Left: nil,
+			Right: &TreeNode{
+				Val:   6,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+
+	assert.Equal(t, 131, sumNumbers(tn))
 }
 
 func TestHouseRobber(t *testing.T) {
@@ -154,7 +182,7 @@ func TestWordSearch(t *testing.T) {
 }
 
 func TestOnlineStockSpan(t *testing.T) {
-	st := Constructor()
+	st := Constructor3()
 	assert.Equal(t, 1, st.Next(100)) // return 1
 	assert.Equal(t, 1, st.Next(80))  // return 1
 	assert.Equal(t, 1, st.Next(60))  // return 1
@@ -163,14 +191,14 @@ func TestOnlineStockSpan(t *testing.T) {
 	assert.Equal(t, 4, st.Next(75))  // return 4, because the last 4 prices (including today's price of 75) were less than or equal to today's price.
 	assert.Equal(t, 6, st.Next(85))  // return 6
 
-	st2 := Constructor()
+	st2 := Constructor3()
 	assert.Equal(t, 1, st2.Next(29)) // return 1
 	assert.Equal(t, 2, st2.Next(91)) // return 1
 	assert.Equal(t, 1, st2.Next(62)) // return 1
 	assert.Equal(t, 2, st2.Next(76)) // return 2
 	assert.Equal(t, 1, st2.Next(51)) // return 1
 
-	st3 := Constructor()
+	st3 := Constructor3()
 	assert.Equal(t, 1, st3.Next(28))  // return 1
 	assert.Equal(t, 1, st3.Next(14))  // return 1
 	assert.Equal(t, 3, st3.Next(28))  // return 1

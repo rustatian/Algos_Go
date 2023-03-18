@@ -43,26 +43,26 @@ func (mf *MedianFinder) FindMedian() float64 {
 
 type minHeap []int
 
-func (m *minHeap) Len() int {
-	return len(*m)
+func (p *minHeap) Len() int {
+	return len(*p)
 }
 
-func (m *minHeap) Less(i, j int) bool {
-	return (*m)[i] < (*m)[j]
+func (p *minHeap) Less(i, j int) bool {
+	return (*p)[i] < (*p)[j]
 }
 
-func (m *minHeap) Pop() any {
-	val := (*m)[len(*m)-1]
-	*m = (*m)[:len(*m)-1]
+func (p *minHeap) Pop() any {
+	val := (*p)[len(*p)-1]
+	*p = (*p)[:len(*p)-1]
 	return val
 }
 
-func (m *minHeap) Push(item any) {
-	*m = append(*m, item.(int))
+func (p *minHeap) Push(item any) {
+	*p = append(*p, item.(int))
 }
 
-func (m *minHeap) Swap(i, j int) {
-	(*m)[i], (*m)[j] = (*m)[j], (*m)[i]
+func (p *minHeap) Swap(i, j int) {
+	(*p)[i], (*p)[j] = (*p)[j], (*p)[i]
 }
 
 type maxHeap []int

@@ -4,7 +4,7 @@ type StockSpanner struct {
 	stack [][2]int
 }
 
-func Constructor() StockSpanner {
+func Constructor3() StockSpanner {
 	return StockSpanner{[][2]int{{1<<31 - 1, 0}}}
 }
 

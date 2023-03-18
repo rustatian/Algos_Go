@@ -6,8 +6,76 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-func TestFindItinerary(t *testing.T) {
-	assert.Equal(t, []string{"JFK", "MUC", "LHR", "SFO", "SJC"}, findItinerary([][]string{{"MUC", "LHR"}, {"JFK", "MUC"}, {"SFO", "SJC"}, {"LHR", "SFO"}}))
+func TestMergeKSortedLists(t *testing.T) {
+	l1 := &ListNode{
+		Val: -2,
+		Next: &ListNode{
+			Val: -1,
+			Next: &ListNode{
+				Val: -1,
+				Next: &ListNode{
+					Val:  -1,
+					Next: nil,
+				},
+			},
+		},
+	}
+
+	//l2 := &ListNode{
+	//	Val: 1,
+	//	Next: &ListNode{
+	//		Val: 3,
+	//		Next: &ListNode{
+	//			Val:  4,
+	//			Next: nil,
+	//		},
+	//	},
+	//}
+	//
+	//l3 := &ListNode{
+	//	Val: 2,
+	//	Next: &ListNode{
+	//		Val:  6,
+	//		Next: nil,
+	//	},
+	//}
+
+	lists := make([]*ListNode, 2)
+	lists[0] = l1
+	lists[1] = nil
+	//lists[2] = l3
+
+	lres := &ListNode{
+		Val: 1,
+		Next: &ListNode{
+			Val: 1,
+			Next: &ListNode{
+				Val: 2,
+				Next: &ListNode{
+					Val: 3,
+					Next: &ListNode{
+						Val: 4,
+						Next: &ListNode{
+							Val: 4,
+							Next: &ListNode{
+								Val: 5,
+								Next: &ListNode{
+									Val:  6,
+									Next: nil,
+								},
+							},
+						},
+					},
+				},
+			},
+		},
+	}
+
+	assert.Equal(t, lres, mergeKLists(lists))
+
+	//res := make([]*ListNode, 1)
+	//res[0] = nil
+	//assert.Equal(t, nil, mergeKLists(res))
 }
 
 func TestFindMedian(t *testing.T) {

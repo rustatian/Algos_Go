@@ -4,9 +4,55 @@ import (
 	"fmt"
 	"testing"
 
+	"github.com/rustatian/GoAlgos/leetcode/medium/design_add_search_words"
+	"github.com/rustatian/GoAlgos/leetcode/medium/design_browser_history"
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/require"
 )
+
+func TestAddSearchWords(t *testing.T) {
+	//c := design_add_search_words.Constructor()
+	//c.AddWord("bad")
+	//c.AddWord("dad")
+	//c.AddWord("mad")
+	//assert.False(t, c.Search("pad"))
+	//assert.True(t, c.Search("bad"))
+	//assert.True(t, c.Search(".ad"))
+	//assert.True(t, c.Search("b.."))
+
+	// [null,null,null,null,null,false,false,null,true,true,false,false,true,false]
+	c2 := design_add_search_words.Constructor()
+	c2.AddWord("at")
+	c2.AddWord("and")
+	c2.AddWord("an")
+	c2.AddWord("add")
+
+	assert.False(t, c2.Search("a"))
+	assert.False(t, c2.Search(".at"))
+
+	c2.AddWord("bat")
+
+	assert.True(t, c2.Search(".at"))
+	assert.True(t, c2.Search("an."))
+	assert.False(t, c2.Search("a.d."))
+	assert.False(t, c2.Search("b."))
+	assert.True(t, c2.Search("a.d"))
+	assert.False(t, c2.Search("."))
+}
+
+func TestDesignBrowserHistory(t *testing.T) {
+	bh := design_browser_history.Constructor("leetcode.com")
+	bh.Visit("google.com")
+	bh.Visit("facebook.com")
+	bh.Visit("youtube.com")
+	assert.Equal(t, "facebook.com", bh.Back(1))
+	assert.Equal(t, "google.com", bh.Back(1))
+	assert.Equal(t, "facebook.com", bh.Forward(1))
+	bh.Visit("linkedin.com")
+	assert.Equal(t, "linkedin.com", bh.Forward(2))
+	assert.Equal(t, "google.com", bh.Back(2))
+	assert.Equal(t, "leetcode.com", bh.Back(7))
+}
 
 func TestTrie(t *testing.T) {
 	trie := Constructor()

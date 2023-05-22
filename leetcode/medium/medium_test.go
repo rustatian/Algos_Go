@@ -10,6 +10,48 @@ import (
 	"github.com/stretchr/testify/require"
 )
 
+func TestDesignLL(t *testing.T) {
+	c := Constructor22()
+	c.AddAtIndex(0, 10)
+	c.AddAtIndex(0, 20)
+	c.AddAtIndex(1, 30)
+	c.Get(0)
+	// c.AddAtHead(1)
+	// c.AddAtTail(3)
+	// c.AddAtIndex(1, 2)
+	// assert.Equal(t, 2, c.Get(1))
+	// c.DeleteAtIndex(1)
+	// assert.Equal(t, 3, c.Get(1))
+}
+
+func TestMaximumWithBT(t *testing.T) {
+	tn := &TreeNode{
+		Val: 1,
+		Left: &TreeNode{
+			Val: 3,
+			Left: &TreeNode{
+				Left: &TreeNode{
+					Val: 5,
+				},
+			},
+			Right: &TreeNode{
+				Val: 3,
+			},
+		},
+		Right: &TreeNode{
+			Val:  2,
+			Left: nil,
+			Right: &TreeNode{
+				Val:   9,
+				Left:  nil,
+				Right: nil,
+			},
+		},
+	}
+
+	assert.Equal(t, 4, widthOfBinaryTree(tn))
+}
+
 func TestAddSearchWords(t *testing.T) {
 	//c := design_add_search_words.Constructor()
 	//c.AddWord("bad")
